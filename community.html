@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>Community • GameCraft Academy</title>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+<header class="site">
+  <div class="container">
+    <div class="brand">
+      <span class="logo" aria-hidden="true"></span>
+      <h1>GameCraft Academy</h1>
+    </div>
+    <nav class="primary" aria-label="Primary">
+      <a href="index.html">Home</a>
+      <a href="projects.html">Projects</a>
+      <a href="progress.html">Progress</a>
+      <a href="community.html" aria-current="page">Community</a>
+      <a href="career.html">Career</a>
+    </nav>
+  </div>
+</header>
+<main>
+  <div class="container">
+
+  <h2 class="section-title">Community</h2>
+  <nav class="tabs" aria-label="Community tabs">
+    <a href="#discussions">Discussions</a>
+    <a href="#groups">Study Groups</a>
+    <a href="#mentors">Mentors</a>
+  </nav>
+
+  <section id="discussions" class="tab-panel default">
+    <article class="card"><h3>Best practices for Unity 2D physics?</h3><p class="small">Sarah Chen • Level 3 • 2 hours ago</p><div class="chips"><span class="chip">Unity</span><span class="chip">Physics</span><span class="chip">2D</span></div></article>
+    <article class="card" style="margin-top:12px"><h3>Struggling with C# OOP concepts</h3><p class="small">Mike Rodriguez • Level 1 • 4 hours ago</p><div class="chips"><span class="chip">C#</span><span class="chip">OOP</span></div></article>
+  </section>
+
+  <section id="groups" class="tab-panel">
+    <article class="card"><h3>Unity Beginners Circle</h3><p class="small">Beginner • Weekly • Next: Fri 7 PM</p></article>
+    <article class="card" style="margin-top:12px"><h3>2D Game Art Club</h3><p class="small">Creative • Next: Mon 6 PM</p></article>
+  </section>
+
+  <section id="mentors" class="tab-panel">
+    <article class="card"><h3>Dr. Emma Thompson</h3><p class="small">Senior Game Dev • Unity • C# • Game Design • 127 sessions completed • ★4.9</p></article>
+    <article class="card" style="margin-top:12px"><h3>Jason Wu</h3><p class="small">Lead Programmer • Advanced C# • Performance • ★4.8</p></article>
+  </section>
+
+  <script>
+    (function(){
+      function sync(){
+        var hash = window.location.hash || "#discussions";
+        document.querySelectorAll(".tabs a").forEach(function(a){
+          a.classList.toggle("active", a.getAttribute("href")===hash);
+        });
+      }
+      window.addEventListener("hashchange", sync); sync();
+    })();
+  </script>
+
+    <div class="footer-note">Prototype for coursework – hybrid architecture: multi-page + on-page tabs via :target.</div>
+    <nav class="bottom-nav" aria-label="Bottom">
+      <a href="index.html">Home</a>
+      <a href="projects.html">Projects</a>
+      <a href="progress.html">Progress</a>
+      <a href="community.html">Community</a>
+      <a href="career.html">Career</a>
+    </nav>
+  </div>
+</main>
+</body>
+</html>

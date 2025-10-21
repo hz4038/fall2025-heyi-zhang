@@ -1,0 +1,76 @@
+/* GameCraft Academy – shared styles (minimal, clean, neutral) */
+:root{
+  --bg:#f7f8fb;
+  --card:#ffffff;
+  --ink:#1a1f36;
+  --muted:#667085;
+  --brand:#4f46e5;
+  --accent:#10b981;
+  --border:#e5e7eb;
+  --chip:#eef2ff;
+}
+
+*{box-sizing:border-box}
+html,body{margin:0;padding:0;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;color:var(--ink);background:var(--bg);}
+a{color:var(--brand);text-decoration:none}
+a:hover{text-decoration:underline}
+.container{max-width:1040px;margin:0 auto;padding:24px}
+.hidden{display:none}
+
+header.site{
+  background:linear-gradient(180deg, #ffffff, #f4f5fb 80%);
+  border-bottom:1px solid var(--border);
+}
+.brand{display:flex;align-items:center;gap:12px}
+.brand .logo{width:36px;height:36px;border-radius:10px;background:var(--brand); display:inline-block}
+.brand h1{font-size:20px;margin:0}
+nav.primary{
+  display:flex;gap:14px;flex-wrap:wrap;margin-top:12px
+}
+nav.primary a{
+  padding:10px 12px;border-radius:10px;background:#fff;border:1px solid var(--border);color:var(--ink);font-weight:500
+}
+nav.primary a[aria-current="page"]{background:var(--brand);color:#fff;border-color:var(--brand)}
+main{padding:24px 0}
+.section-title{font-size:20px;margin:8px 0 16px}
+
+.grid{display:grid;gap:16px}
+.grid.cols-2{grid-template-columns:repeat(2, minmax(0,1fr))}
+.grid.cols-3{grid-template-columns:repeat(3, minmax(0,1fr))}
+@media (max-width: 900px){ .grid.cols-3{grid-template-columns:1fr 1fr} }
+@media (max-width: 720px){
+  .grid.cols-2,.grid.cols-3{grid-template-columns:1fr}
+}
+
+.card{
+  background:var(--card);
+  border:1px solid var(--border);
+  border-radius:16px;
+  padding:16px;
+  box-shadow:0 2px 6px rgba(16,24,40,.04);
+}
+.card h3{margin:0 0 8px 0;font-size:16px}
+.small{font-size:12px;color:var(--muted)}
+.kpis{display:flex;gap:12px}
+.kpi{flex:1;background:var(--card);border:1px solid var(--border);border-radius:14px;padding:12px;text-align:center}
+.kpi .value{font-weight:700;font-size:20px}
+.progressbar{height:8px;background:#edf1f7;border-radius:999px;overflow:hidden;border:1px solid var(--border)}
+.progressbar > span{display:block;height:100%;background:var(--accent);width:40%}
+
+.chips{display:flex;gap:8px;flex-wrap:wrap;margin-top:8px}
+.chip{font-size:12px;background:var(--chip);border:1px solid #c7d2fe;color:#4338ca;padding:4px 8px;border-radius:999px}
+
+.footer-note{color:var(--muted);font-size:13px;margin-top:24px}
+
+/* Tabs via :target */
+.tabs{display:flex;gap:8px;margin-bottom:12px;flex-wrap:wrap}
+.tabs a{padding:8px 10px;border:1px solid var(--border);border-radius:10px;background:#fff;color:var(--ink)}
+.tabs a.active{background:var(--brand);color:#fff;border-color:var(--brand)}
+.tab-panel{display:none}
+.tab-panel:target{display:block}
+/* Default-visible panel (when no hash): */
+.tab-panel.default{display:block}
+
+/* Bottom nav (mobile-like preview) – optional */
+.bottom-nav{display:flex;gap:10px;justify-content:space-between;margin-top:24px}
+.bottom-nav a{flex:1;text-align:center;padding:10px;border:1px solid var(--border);border-radius:12px;background:#fff;color:var(--ink);font-weight:500}

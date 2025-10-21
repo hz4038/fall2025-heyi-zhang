@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>Projects & Challenges • GameCraft Academy</title>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+<header class="site">
+  <div class="container">
+    <div class="brand">
+      <span class="logo" aria-hidden="true"></span>
+      <h1>GameCraft Academy</h1>
+    </div>
+    <nav class="primary" aria-label="Primary">
+      <a href="index.html">Home</a>
+      <a href="projects.html" aria-current="page">Projects</a>
+      <a href="progress.html">Progress</a>
+      <a href="community.html">Community</a>
+      <a href="career.html">Career</a>
+    </nav>
+  </div>
+</header>
+<main>
+  <div class="container">
+
+  <h2 class="section-title">Projects &amp; Challenges</h2>
+  <nav class="tabs" aria-label="Project tabs">
+    <a href="#practice" id="tab-practice">Practice</a>
+    <a href="#showcase" id="tab-showcase">Showcase</a>
+    <a href="#challenges" id="tab-challenges">Challenges</a>
+  </nav>
+
+  <section id="practice" class="tab-panel default">
+    <div class="grid cols-2">
+      <article class="card">
+        <h3>Pong Classic</h3>
+        <div class="chips"><span class="chip">Beginner</span><span class="chip">Unity</span><span class="chip">C#</span></div>
+        <p class="small">Finish a complete game using Unity physics &amp; basic scripting (2–3 hours).</p>
+        <div class="small">Progress</div>
+        <div class="progressbar"><span style="width:100%"></span></div>
+      </article>
+      <article class="card">
+        <h3>Platformer Character Controller</h3>
+        <div class="chips"><span class="chip">Animation</span><span class="chip">Input</span><span class="chip">Physics</span></div>
+        <p class="small">Build a responsive 2D character with smooth movement &amp; animations (3–4 hours).</p>
+        <div class="small">Progress</div>
+        <div class="progressbar"><span style="width:20%"></span></div>
+      </article>
+    </div>
+  </section>
+
+  <section id="showcase" class="tab-panel">
+    <div class="grid cols-2">
+      <article class="card">
+        <h3>Neon Runner</h3>
+        <p class="small">Procedural generation + neon aesthetics. By Alex Chen.</p>
+        <div class="chips"><span class="chip">2D</span><span class="chip">Endless Runner</span></div>
+      </article>
+      <article class="card">
+        <h3>Puzzle Gardens</h3>
+        <p class="small">Match‑3 + gardening vibes. By Maria Santos.</p>
+        <div class="chips"><span class="chip">Puzzle</span><span class="chip">Relaxing</span></div>
+      </article>
+    </div>
+  </section>
+
+  <section id="challenges" class="tab-panel">
+    <div class="grid cols-2">
+      <article class="card">
+        <h3>Weekly Code Challenge</h3>
+        <p class="small">Make a character change color when touching different surfaces. <strong>3 days left</strong>.</p>
+        <div class="chips"><span class="chip">Beginner</span></div>
+      </article>
+      <article class="card">
+        <h3>Monthly Game Jam</h3>
+        <p class="small">Build a game around the theme <em>Time Travel</em> in 48 hours.</p>
+        <div class="chips"><span class="chip">All Levels</span></div>
+      </article>
+    </div>
+  </section>
+
+  <script>
+    (function(){
+      function sync(){
+        var hash = window.location.hash || "#practice";
+        document.querySelectorAll(".tabs a").forEach(function(a){
+          a.classList.toggle("active", a.getAttribute("href")===hash);
+        });
+      }
+      window.addEventListener("hashchange", sync);
+      sync();
+    })();
+  </script>
+
+    <div class="footer-note">Prototype for coursework – hybrid architecture: multi-page + on-page tabs via :target.</div>
+    <nav class="bottom-nav" aria-label="Bottom">
+      <a href="index.html">Home</a>
+      <a href="projects.html">Projects</a>
+      <a href="progress.html">Progress</a>
+      <a href="community.html">Community</a>
+      <a href="career.html">Career</a>
+    </nav>
+  </div>
+</main>
+</body>
+</html>
