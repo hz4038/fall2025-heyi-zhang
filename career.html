@@ -33,37 +33,20 @@
   </nav>
 
   <section id="paths" class="tab-panel default">
-    <article class="card">
-      <h3>Indie Game Developer <span class="small">• High Demand</span></h3>
-      <ul class="small">
-        <li>Average Salary: $45k – $85k</li>
-        <li>Time to Entry: 6–12 months</li>
-        <li>Key Skills: Unity/Unreal, C#/C++, Game Design</li>
-      </ul>
-      <div class="chips"><span class="chip">Creative freedom</span><span class="chip">Flexible schedule</span></div>
-    </article>
-    <article class="card" style="margin-top:12px">
-      <h3>Game Programmer <span class="small">• Very High Demand</span></h3>
-      <ul class="small">
-        <li>Average Salary: $65k – $120k</li>
-        <li>Time to Entry: 8–18 months</li>
-        <li>Key Skills: C#, C++, Engine internals</li>
-      </ul>
-    </article>
+    <div id="paths-list"></div>
   </section>
 
   <section id="skills" class="tab-panel">
     <article class="card">
       <h3>Overall Readiness</h3>
       <p class="small">Ready for entry-level positions: 47%</p>
-      <div class="progressbar"><span style="width:47%"></span></div>
+      <div class="progressbar"><span id="readiness-bar"></span></div>
       <p class="small" style="margin-top:8px">Focus on C# programming and Unity to reach 70%.</p>
     </article>
   </section>
 
   <section id="jobs" class="tab-panel">
-    <article class="card"><h3>Junior Unity Developer</h3><p class="small">Remote • $50k–$65k • Required: Unity, C#, 2D Games</p></article>
-    <article class="card" style="margin-top:12px"><h3>Indie Game Developer</h3><p class="small">San Francisco, CA • $60k–$80k • Required: Unity, Game Design, Art Direction</p></article>
+    <div id="jobs-list"></div>
   </section>
 
   <script>
@@ -78,7 +61,7 @@
     })();
   </script>
 
-    <div class="footer-note">Prototype for coursework – hybrid architecture: multi-page + on-page tabs via :target.</div>
+    <div class="footer-note">Prototype for coursework – hybrid architecture: multi-page + on-page tabs via :target + dynamic JS rendering.</div>
     <nav class="bottom-nav" aria-label="Bottom">
       <a href="index.html">Home</a>
       <a href="projects.html">Projects</a>
@@ -88,5 +71,6 @@
     </nav>
   </div>
 </main>
+<script src="script.js"></script>
 </body>
 </html>

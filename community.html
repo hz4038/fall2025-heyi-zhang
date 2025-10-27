@@ -33,18 +33,15 @@
   </nav>
 
   <section id="discussions" class="tab-panel default">
-    <article class="card"><h3>Best practices for Unity 2D physics?</h3><p class="small">Sarah Chen • Level 3 • 2 hours ago</p><div class="chips"><span class="chip">Unity</span><span class="chip">Physics</span><span class="chip">2D</span></div></article>
-    <article class="card" style="margin-top:12px"><h3>Struggling with C# OOP concepts</h3><p class="small">Mike Rodriguez • Level 1 • 4 hours ago</p><div class="chips"><span class="chip">C#</span><span class="chip">OOP</span></div></article>
+    <div id="discussions-list"></div>
   </section>
 
   <section id="groups" class="tab-panel">
-    <article class="card"><h3>Unity Beginners Circle</h3><p class="small">Beginner • Weekly • Next: Fri 7 PM</p></article>
-    <article class="card" style="margin-top:12px"><h3>2D Game Art Club</h3><p class="small">Creative • Next: Mon 6 PM</p></article>
+    <div id="groups-list"></div>
   </section>
 
   <section id="mentors" class="tab-panel">
-    <article class="card"><h3>Dr. Emma Thompson</h3><p class="small">Senior Game Dev • Unity • C# • Game Design • 127 sessions completed • ★4.9</p></article>
-    <article class="card" style="margin-top:12px"><h3>Jason Wu</h3><p class="small">Lead Programmer • Advanced C# • Performance • ★4.8</p></article>
+    <div id="mentors-list"></div>
   </section>
 
   <script>
@@ -59,7 +56,7 @@
     })();
   </script>
 
-    <div class="footer-note">Prototype for coursework – hybrid architecture: multi-page + on-page tabs via :target.</div>
+    <div class="footer-note">Prototype for coursework – hybrid architecture: multi-page + on-page tabs via :target + dynamic JS rendering.</div>
     <nav class="bottom-nav" aria-label="Bottom">
       <a href="index.html">Home</a>
       <a href="projects.html">Projects</a>
@@ -69,5 +66,6 @@
     </nav>
   </div>
 </main>
+<script src="script.js"></script>
 </body>
 </html>

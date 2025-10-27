@@ -33,52 +33,15 @@
   </nav>
 
   <section id="practice" class="tab-panel default">
-    <div class="grid cols-2">
-      <article class="card">
-        <h3>Pong Classic</h3>
-        <div class="chips"><span class="chip">Beginner</span><span class="chip">Unity</span><span class="chip">C#</span></div>
-        <p class="small">Finish a complete game using Unity physics &amp; basic scripting (2–3 hours).</p>
-        <div class="small">Progress</div>
-        <div class="progressbar"><span style="width:100%"></span></div>
-      </article>
-      <article class="card">
-        <h3>Platformer Character Controller</h3>
-        <div class="chips"><span class="chip">Animation</span><span class="chip">Input</span><span class="chip">Physics</span></div>
-        <p class="small">Build a responsive 2D character with smooth movement &amp; animations (3–4 hours).</p>
-        <div class="small">Progress</div>
-        <div class="progressbar"><span style="width:20%"></span></div>
-      </article>
-    </div>
+    <div id="practice-list" class="grid cols-2"></div>
   </section>
 
   <section id="showcase" class="tab-panel">
-    <div class="grid cols-2">
-      <article class="card">
-        <h3>Neon Runner</h3>
-        <p class="small">Procedural generation + neon aesthetics. By Alex Chen.</p>
-        <div class="chips"><span class="chip">2D</span><span class="chip">Endless Runner</span></div>
-      </article>
-      <article class="card">
-        <h3>Puzzle Gardens</h3>
-        <p class="small">Match‑3 + gardening vibes. By Maria Santos.</p>
-        <div class="chips"><span class="chip">Puzzle</span><span class="chip">Relaxing</span></div>
-      </article>
-    </div>
+    <div id="showcase-list" class="grid cols-2"></div>
   </section>
 
   <section id="challenges" class="tab-panel">
-    <div class="grid cols-2">
-      <article class="card">
-        <h3>Weekly Code Challenge</h3>
-        <p class="small">Make a character change color when touching different surfaces. <strong>3 days left</strong>.</p>
-        <div class="chips"><span class="chip">Beginner</span></div>
-      </article>
-      <article class="card">
-        <h3>Monthly Game Jam</h3>
-        <p class="small">Build a game around the theme <em>Time Travel</em> in 48 hours.</p>
-        <div class="chips"><span class="chip">All Levels</span></div>
-      </article>
-    </div>
+    <div id="challenges-list" class="grid cols-2"></div>
   </section>
 
   <script>
@@ -94,7 +57,7 @@
     })();
   </script>
 
-    <div class="footer-note">Prototype for coursework – hybrid architecture: multi-page + on-page tabs via :target.</div>
+    <div class="footer-note">Prototype for coursework – hybrid architecture: multi-page + on-page tabs via :target + dynamic JS rendering.</div>
     <nav class="bottom-nav" aria-label="Bottom">
       <a href="index.html">Home</a>
       <a href="projects.html">Projects</a>
@@ -104,5 +67,6 @@
     </nav>
   </div>
 </main>
+<script src="script.js"></script>
 </body>
 </html>

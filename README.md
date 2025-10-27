@@ -21,3 +21,21 @@
 - Fragment-based tabs rely on URL hashes. If you need browser history control or animations later, you might add light JS.
 - As content grows, consider componentizing repeated UI (cards, chips). For now, repetition keeps files simple and explicit.
 - Accessibility: headings, landmarks, and `aria-label`s are included; further work could add keyboard focus styles and skip links.
+
+
+## Week 8 — Data‑Driven Content (Arrays + Loops + DOM)
+**What I display:** Project practice/showcase/challenges, community discussions/groups/mentors, and career paths/jobs are now generated from JavaScript arrays.
+
+**How it's built:**  
+- I defined arrays of objects (≥5 items each) in `script.js`.  
+- I loop through arrays with `forEach()` and build DOM nodes via `document.createElement()`.  
+- I set `textContent` / attributes and append into page containers (e.g., `#practice-list`, `#discussions-list`).  
+- Pages remain framework‑free and accessible; tabs still use `:target` + a tiny sync script.
+
+**Challenges:**  
+- Deciding what to render dynamically vs. keep static. I chose to keep page shells/headers static and render list content via JS.  
+- Preventing FOUC on slow connections—could later add a `hidden` class that is removed after render.
+
+**Next week:**  
+- Add images per item and a lightweight filter/sort control for Projects.  
+- Persist progress to `localStorage` and render badges.
