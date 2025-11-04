@@ -13,6 +13,7 @@
       <span class="logo" aria-hidden="true"></span>
       <h1>GameCraft Academy</h1>
     </div>
+    <button id="theme-toggle" class="btn ghost" aria-pressed="false" aria-label="Toggle dark mode">🌓</button>
     <nav class="primary" aria-label="Primary">
       <a href="index.html">Home</a>
       <a href="projects.html">Projects</a>
@@ -46,6 +47,7 @@
   </section>
 
   <section id="jobs" class="tab-panel">
+    <p class="legend small">Tip: Click the ☆ on a job to save it.</p>
     <div id="jobs-list"></div>
   </section>
 
@@ -70,6 +72,9 @@
       <a href="career.html">Career</a>
     </nav>
   </div>
+
+<div id="modal" class="modal" aria-hidden="true" role="dialog" aria-modal="true"><div class="modal__dialog" role="document"><button class="modal__close" aria-label="Close">×</button><div id="modal-content"></div></div><div class="modal__backdrop"></div></div>
+
 </main>
 <script src="script.js"></script>
 </body>

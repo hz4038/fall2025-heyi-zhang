@@ -39,3 +39,13 @@
 **Next week:**  
 - Add images per item and a lightweight filter/sort control for Projects.  
 - Persist progress to `localStorage` and render badges.
+
+
+## Features added
+- Dark mode toggle (persisted)
+- Project search/filter/sort + mark-as-done
+- Community: new post form (local only)
+- Mentors: booking modal (demo)
+- Jobs: save ☆ to favorites
+- LocalStorage persistence for progress and settings
+- Accessible focus styles and keyboard support

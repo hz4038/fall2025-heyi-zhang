@@ -13,6 +13,7 @@
       <span class="logo" aria-hidden="true"></span>
       <h1>GameCraft Academy</h1>
     </div>
+    <button id="theme-toggle" class="btn ghost" aria-pressed="false" aria-label="Toggle dark mode">🌓</button>
     <nav class="primary" aria-label="Primary">
       <a href="index.html">Home</a>
       <a href="projects.html" aria-current="page">Projects</a>
@@ -26,6 +27,23 @@
   <div class="container">
 
   <h2 class="section-title">Projects &amp; Challenges</h2>
+  <div id="project-controls" class="toolbar">
+    <input id="project-search" type="search" placeholder="Search projects (title, tags)..." aria-label="Search projects"/>
+    <select id="project-sort" aria-label="Sort projects">
+      <option value="progress-desc">Sort by Progress ↓</option>
+      <option value="progress-asc">Sort by Progress ↑</option>
+      <option value="alpha-asc">A → Z</option>
+      <option value="alpha-desc">Z → A</option>
+    </select>
+    <div class="filters">
+      <button class="chip filter" data-filter="Unity">Unity</button>
+      <button class="chip filter" data-filter="C#">C#</button>
+      <button class="chip filter" data-filter="2D">2D</button>
+      <button class="chip filter" data-filter="Animation">Animation</button>
+      <button class="chip filter" data-filter="AI">AI</button>
+      <button id="clear-filters" class="btn ghost small">Clear</button>
+    </div>
+  </div>
   <nav class="tabs" aria-label="Project tabs">
     <a href="#practice" id="tab-practice">Practice</a>
     <a href="#showcase" id="tab-showcase">Showcase</a>
@@ -66,6 +84,9 @@
       <a href="career.html">Career</a>
     </nav>
   </div>
+
+<div id="modal" class="modal" aria-hidden="true" role="dialog" aria-modal="true"><div class="modal__dialog" role="document"><button class="modal__close" aria-label="Close">×</button><div id="modal-content"></div></div><div class="modal__backdrop"></div></div>
+
 </main>
 <script src="script.js"></script>
 </body>
