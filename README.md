@@ -57,10 +57,27 @@
 * `localStorage` persistence for progress and settings
 * Accessible focus styles and keyboard support
 
-## Animation Summary (Added This Week)
+## Animation Summary
 
 * **Interaction cues:** Cards lift slightly with a shadow on hover; nav link underlines slide in with a slight raise; chips get a subtle lift to improve affordance.
 * **Page/section transitions:** Quick fade-in on first page load; tab content fades in and slides up to reduce the “sudden change” feeling.
 * **Feedback & microinteractions:** Buttons depress slightly on press; star/favorite click scales with a small pop when filled.
 * **Overlays & notifications:** Modal backdrop fades in and dialogs pop in; toasts slide up from the bottom.
 * **Progress & loading:** Progress bar width transitions smoothly; skeleton placeholders shimmer to indicate loading.
+
+
+## New: Layout & Visual Polish
+
+**What I refined this week:**
+
+* Added a consistent page header + short intro paragraph on every page (Home, Projects, Progress, Community, Career) so learners immediately see what the screen is for.
+* Tweaked layout spacing by giving the main container more breathing room and increasing overall line-height for better readability on both desktop and mobile.
+* Improved the top navigation on small screens by allowing horizontal scrolling, so the pill-style links stay usable instead of wrapping awkwardly.
+* Softened and rounded the bottom “mobile preview” nav with a subtle gradient, making it feel more like a dock instead of a second toolbar.
+* Highlighted active project filter chips with a solid brand background for clearer visual feedback when filtering.
+
+**Small interaction touches:**
+
+* Job “save” stars now toggle a `.filled` state as well as the ★/☆ character, so the micro-animation in CSS is actually used when you save or unsave a job.
+* Overall, these changes focus on readability and visual hierarchy rather than new features, keeping the prototype simple but more polished.
+

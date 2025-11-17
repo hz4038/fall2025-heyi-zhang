@@ -1,8 +1,5 @@
-// script.js — dynamic content via arrays + DOM creation
-// Guard: only run after DOM is ready
 document.addEventListener("DOMContentLoaded", () => {
 
-  // ---------- Data Arrays (at least 5 each) ----------
   const practiceItems = [
     { title: "Pong Classic", chips: ["Beginner","Unity","C#"], desc: "Finish a complete game using Unity physics & basic scripting (2–3 hours).", progress: 100 },
     { title: "Platformer Character Controller", chips: ["Animation","Input","Physics"], desc: "Build a responsive 2D character with smooth movement & animations (3–4 hours).", progress: 25 },
@@ -67,7 +64,6 @@ document.addEventListener("DOMContentLoaded", () => {
     { title: "QA Engineer (Automation)", meta: "Montreal, QC • $55k–$75k • Required: Python/C#, CI" }
   ];
 
-  // ---------- Helpers ----------
   function el(tag, className, text){
     const node = document.createElement(tag);
     if(className) node.className = className;
@@ -93,12 +89,10 @@ document.addEventListener("DOMContentLoaded", () => {
     container.appendChild(bar);
   }
 
-  // ---------- Renderers ----------
   function renderCard({title, desc, meta, chips, progress, bullets, tag, extra}){
     const card = el("article","card");
     const h3 = el("h3");
 
-    // 修复点 #3：避免双空格——先只设置标题，若有 tag 再追加空格与标签元素
     h3.textContent = title;
     if(tag){
       h3.appendChild(document.createTextNode(" "));
@@ -125,12 +119,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
   function renderList(targetId, items){
     const target = document.getElementById(targetId);
-    if(!target) return; // not on this page
+    if(!target) return;
     target.innerHTML = "";
     items.forEach(obj => target.appendChild(renderCard(obj)));
   }
 
-  // ---------- Page Hooks ----------
   renderList("practice-list", practiceItems);
   renderList("showcase-list", showcaseItems);
   renderList("challenges-list", challengeItems);
@@ -142,20 +135,16 @@ document.addEventListener("DOMContentLoaded", () => {
   renderList("paths-list", paths);
   renderList("jobs-list", jobs);
 
-  // Skills panel: example dynamic % bar update
   const readinessBar = document.getElementById("readiness-bar");
   if(readinessBar){
     readinessBar.style.width = "47%";
   }
 });
 
-
-// ---------- Enhancements: Theme, Toasts, Filters, LocalStorage, Modals, Actions ----------
 (function(){
   const $ = (sel, root=document) => root.querySelector(sel);
   const $$ = (sel, root=document) => Array.from(root.querySelectorAll(sel));
 
-  // Theme toggle with persistence
   const themeBtn = $("#theme-toggle");
   const THEME_KEY = "gca.theme";
   function setTheme(mode){
@@ -176,7 +165,6 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  // Toast helper
   let toastTimer;
   function toast(msg, ms=1800){
     let el = $(".toast");
@@ -192,7 +180,6 @@ document.addEventListener("DOMContentLoaded", () => {
   }
   window.__toast = toast;
 
-  // Modal
   const modal = $("#modal");
   const modalContent = $("#modal-content");
   function openModal(node){
@@ -217,13 +204,11 @@ document.addEventListener("DOMContentLoaded", () => {
     window.addEventListener("keydown", (e)=>{ if(e.key==="Escape") closeModal(); });
   }
 
-  // LocalStorage utilities
   const LS = {
     get(k, d){ try{ return JSON.parse(localStorage.getItem(k)) ?? d; }catch{ return d; } },
     set(k, v){ localStorage.setItem(k, JSON.stringify(v)); }
   };
 
-  // Projects: search/filter/sort + mark as done + details
   const search = $("#project-search");
   const sortSel = $("#project-sort");
   const filterChips = $$(".filters .filter");
@@ -244,7 +229,6 @@ document.addEventListener("DOMContentLoaded", () => {
     if(val==="alpha-asc") return a.title.localeCompare(b.title);
     if(val==="alpha-desc") return b.title.localeCompare(a.title);
     if(val==="progress-asc") return (a.progress||0) - (b.progress||0);
-    // default progress-desc
     return (b.progress||0) - (a.progress||0);
   }
 
@@ -271,7 +255,6 @@ document.addEventListener("DOMContentLoaded", () => {
         LS.set(key,true);
         doneBtn.textContent = "Completed ✓";
         doneBtn.disabled = true;
-        // 修复点 #2：修正字符串拼接引号
         toast('Nice! Marked "' + title + '" as done.');
       });
 
@@ -288,7 +271,6 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   function rerenderProjects(){
-    // Reuse existing DOM, just toggle display based on filters (since items are initially rendered by the base script).
     const containers = ["practice-list","showcase-list","challenges-list"].map(id => document.getElementById(id)).filter(Boolean);
     containers.forEach(container => {
       const cards = Array.from(container.children);
@@ -297,7 +279,6 @@ document.addEventListener("DOMContentLoaded", () => {
         const chips = Array.from(card.querySelectorAll(".chip")).map(c=>c.textContent);
         card.style.display = matchesFilter(text, chips) ? "" : "none";
       });
-      // Optional: simple sort by detaching & re-adding
       cards.sort((a,b)=>{
         const ap = parseInt(a.querySelector(".progressbar span")?.style.width || "0");
         const bp = parseInt(b.querySelector(".progressbar span")?.style.width || "0");
@@ -325,10 +306,8 @@ document.addEventListener("DOMContentLoaded", () => {
     if(search) search.value = "";
     rerenderProjects();
   });
-  // initial enhancement if present
   if($("#practice-list")) setTimeout(rerenderProjects, 0);
 
-  // Community: new post (local-only)
   const form = $("#new-post-form");
   if(form){
     form.addEventListener("submit", (e)=>{
@@ -365,7 +344,6 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  // Career: jobs save ☆
   function enhanceJobs(){
     $$("#jobs-list .card").forEach(card=>{
       if(card.dataset.starred) return;
@@ -376,19 +354,23 @@ document.addEventListener("DOMContentLoaded", () => {
       star.title = "Save job";
       star.textContent = "☆";
       const key = "gca.job.saved."+title;
-      if(LS.get(key,false)) star.textContent = "★";
+      if(LS.get(key,false)){
+        star.textContent = "★";
+        star.classList.add("filled");
+      }
       star.addEventListener("click", ()=>{
         const saved = LS.get(key,false);
-        LS.set(key, !saved);
-        star.textContent = saved ? "☆" : "★";
-        toast(!saved ? "Saved job" : "Removed");
+        const next = !saved;
+        LS.set(key, next);
+        star.textContent = next ? "★" : "☆";
+        star.classList.toggle("filled", next);
+        toast(next ? "Saved job" : "Removed");
       });
       $("h3", card)?.appendChild(star);
     });
   }
   if($("#jobs-list")) setTimeout(enhanceJobs, 0);
 
-  // Mentors: booking demo
   function enhanceMentors(){
     $$("#mentors-list .card").forEach(card=>{
       if(card.dataset.booking) return;
@@ -400,7 +382,6 @@ document.addEventListener("DOMContentLoaded", () => {
         const t = $("h3", card)?.textContent || "Mentor";
         const node = document.createElement("div");
 
-        // 修复点 #1：去掉反引号前的反斜杠，使用合法模板字符串
         node.innerHTML = `
           <h3>Book with ${t}</h3>
           <p class="small">Pick a demo time (no backend):</p>
@@ -422,11 +403,9 @@ document.addEventListener("DOMContentLoaded", () => {
   }
   if($("#mentors-list")) setTimeout(enhanceMentors, 0);
 
-  // Index/Progress: gamified badges + streak
   function ensureBadges(){
     $$(".kpi .value").forEach((v)=>{
       if(v.textContent.trim() === "5"){
-        // add a badge near streak
         const parent = v.closest(".kpi");
         if(parent && !$(".badge", parent)){
           const b = document.createElement("span"); b.className="badge"; b.textContent="🔥 5-day streak";

@@ -21,7 +21,7 @@ header.site{
   border-bottom:1px solid var(--border);
 }
 .brand{display:flex;align-items:center;gap:12px}
-.brand .logo{width:36px;height:36px;border-radius:10px;background:var(--brand); display:inline-block}
+.brand .logo{width:40px;height:40px;border-radius:999px;background:linear-gradient(135deg,var(--brand),#7f5dff);display:flex;align-items:center;justify-content:center;color:#fff;font-weight:700;font-size:18px;box-shadow:0 6px 18px rgba(88,80,221,.35);}
 .brand h1{font-size:20px;margin:0}
 nav.primary{
   display:flex;gap:14px;flex-wrap:wrap;margin-top:12px
@@ -61,7 +61,6 @@ main{padding:24px 0}
 
 .footer-note{color:var(--muted);font-size:13px;margin-top:24px}
 
-/* Tabs via :target */
 .tabs{display:flex;gap:8px;margin-bottom:12px;flex-wrap:wrap}
 .tabs a{padding:8px 10px;border:1px solid var(--border);border-radius:10px;background:#fff;color:var(--ink)}
 .tabs a.active{background:var(--brand);color:#fff;border-color:var(--brand)}
@@ -69,7 +68,6 @@ main{padding:24px 0}
 .tab-panel:target{display:block}
 .tab-panel.default{display:block}
 
-/* Bottom nav (mobile-like preview) – optional */
 .bottom-nav{display:flex;gap:10px;justify-content:space-between;margin-top:24px}
 .bottom-nav a{flex:1;text-align:center;padding:10px;border:1px solid var(--border);border-radius:12px;background:#fff;color:var(--ink);font-weight:500}
 
@@ -124,7 +122,6 @@ body, .card, nav.primary a, .bottom-nav a, .tabs a{ transition: background-color
 .card .actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:10px}
 .badge{display:inline-block;border:1px solid var(--border);background:var(--chip);color:#4338ca;border-radius:999px;padding:2px 8px;font-size:12px;margin-left:6px}
 
-/* Motion*/
 @media (prefers-reduced-motion: no-preference){
   .card{
     transition: transform .18s ease, box-shadow .25s ease,
@@ -206,4 +203,51 @@ body, .card, nav.primary a, .bottom-nav a, .tabs a{ transition: background-color
     mix-blend-mode: overlay;
   }
   @keyframes shimmer{ from{ background-position: -200% 0 } to{ background-position: 200% 0 } }
+}
+
+
+body{
+  line-height:1.5;
+}
+
+.container{
+  max-width:1040px;
+  margin:0 auto;
+  padding:24px 24px 32px;
+}
+
+.page-header{
+  padding:4px 0 16px;
+  margin-bottom:8px;
+  border-bottom:1px solid var(--border);
+}
+
+.page-intro{
+  margin:0;
+  font-size:13px;
+  color:var(--muted);
+  max-width:52rem;
+}
+
+nav.primary{
+  overflow-x:auto;
+  padding-bottom:4px;
+  -webkit-overflow-scrolling:touch;
+}
+
+nav.primary::-webkit-scrollbar{
+  display:none;
+}
+
+.bottom-nav{
+  margin-top:24px;
+  padding:10px;
+  border-radius:16px;
+  background:linear-gradient(180deg, rgba(255,255,255,.9), var(--bg));
+}
+
+.filters .chip.active{
+  background:var(--brand);
+  color:#fff;
+  border-color:var(--brand);
 }
