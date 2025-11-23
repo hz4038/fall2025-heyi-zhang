@@ -13,7 +13,7 @@
       <span class="logo" aria-hidden="true"></span>
       <h1>GameCraft Academy</h1>
     </div>
-    <button id="theme-toggle" class="btn ghost" aria-pressed="false" aria-label="Toggle dark mode">🌓</button>
+    <div style="flex:1"></div>
     <nav class="primary" aria-label="Primary">
       <a href="index.html">Home</a>
       <a href="projects.html">Projects</a>
@@ -21,22 +21,24 @@
       <a href="community.html" aria-current="page">Community</a>
       <a href="career.html">Career</a>
     </nav>
+    <button id="theme-toggle" class="btn ghost" style="margin-left:12px">🌓</button>
   </div>
 </header>
 <main>
-  <div class="container">
+  <div class="container reveal-on-scroll">
 
   <h2 class="section-title">Community</h2>
   <p class="page-intro">Share questions, join study groups, and find mentors who support your game dev journey.</p>
+  
   <nav class="tabs" aria-label="Community tabs">
-    <a href="#discussions">Discussions</a>
+    <a href="#discussions" class="active">Discussions</a>
     <a href="#groups">Study Groups</a>
     <a href="#mentors">Mentors</a>
   </nav>
 
-  <section id="discussions" class="tab-panel default">
+  <section id="discussions" class="tab-panel default active">
     <form id="new-post-form" class="card form" aria-label="Create new post">
-      <h3>Create a new discussion</h3>
+      <h3 style="margin-top:0">Create a new discussion</h3>
       <div class="form-row">
         <input id="post-title" type="text" placeholder="Title" required/>
       </div>
@@ -46,17 +48,17 @@
       <div class="form-row">
         <textarea id="post-body" rows="3" placeholder="Write something..." required></textarea>
       </div>
-      <button class="btn" type="submit">Post</button>
+      <button class="btn" type="submit">Post Discussion</button>
     </form>
-    <div id="discussions-list"></div>
+    <div id="discussions-list" class="grid cols-1"></div>
   </section>
 
   <section id="groups" class="tab-panel">
-    <div id="groups-list"></div>
+    <div id="groups-list" class="grid cols-2"></div>
   </section>
 
   <section id="mentors" class="tab-panel">
-    <div id="mentors-list"></div>
+    <div id="mentors-list" class="grid cols-2"></div>
   </section>
 
   <script>
@@ -66,8 +68,16 @@
         document.querySelectorAll(".tabs a").forEach(function(a){
           a.classList.toggle("active", a.getAttribute("href")===hash);
         });
+        document.querySelectorAll(".tab-panel").forEach(function(p){
+          if(p.id === hash.replace('#','')) {
+              p.style.display = 'block';
+          } else {
+              p.style.display = 'none';
+          }
+        });
       }
-      window.addEventListener("hashchange", sync); sync();
+      window.addEventListener("hashchange", sync); 
+      window.addEventListener("DOMContentLoaded", sync);
     })();
   </script>
 

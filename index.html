@@ -3,23 +3,19 @@
 <head>
   <meta charset="utf-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <title>Home • GameCraft Academy</title>
+  <title>GameCraft Academy • Learn Unity faster</title>
   <link rel="stylesheet" href="style.css"/>
+  <script defer src="script.js"></script>
 </head>
-<body>
+<body class="landing">
 <header class="site">
-  <div class="container">
-
-<header class="page-header">
-  <h2 class="section-title">Welcome back to GameCraft Academy</h2>
-  <p class="page-intro">Quickly scan your XP, streak, and Unity learning roadmaps so you know what to tackle next.</p>
-</header>
-
+  <div class="container nav-shell">
     <div class="brand">
       <span class="logo" aria-hidden="true">GA</span>
-      <h1>GameCraft Academy</h1>
+      <div class="brand-text">
+        <span>GameCraft Academy</span>
+      </div>
     </div>
-    <button id="theme-toggle" class="btn ghost" aria-pressed="false" aria-label="Toggle dark mode">🌓</button>
     <nav class="primary" aria-label="Primary">
       <a href="index.html" aria-current="page">Home</a>
       <a href="projects.html">Projects</a>
@@ -27,73 +23,254 @@
       <a href="community.html">Community</a>
       <a href="career.html">Career</a>
     </nav>
+    <div class="nav-actions">
+      <button id="theme-toggle" class="btn ghost nav-theme" aria-label="Toggle dark mode">🌓</button>
+      <a href="projects.html" class="btn small hero-primary">Join beta →</a>
+    </div>
   </div>
 </header>
-<main>
-  <div class="container">
 
-  <section aria-labelledby="overview-title" class="grid cols-2">
-    <article class="card">
-      <h2 id="overview-title" class="section-title">Your Progress</h2>
-      <div class="grid cols-2">
-        <div class="kpi">
-          <div class="small">Current Level</div>
-          <div class="value">2</div>
-          <div class="small">350 / 1500 XP</div>
+<main class="landing-main">
+  <div class="landing-hero">
+    <div class="container">
+      <div class="hero-content reveal-on-scroll">
+        <h1 class="hero-title">Unity learning platform for builders, not just watchers.</h1>
+        <p class="hero-subtitle">
+          Stop following endless tutorials. GameCraft Academy gives you a structured path, 
+          real-world projects, and a mentor-led community to help you ship your first commercial game.
+        </p>
+        <div class="hero-ctas">
+          <a href="projects.html" class="btn hero-primary">Start Building Free</a>
+          <a href="#curriculum" class="btn ghost">View Curriculum</a>
         </div>
-        <div class="kpi">
-          <div class="small">Day Streak</div>
-          <div class="value">5</div>
-          <div class="small">Keep it up! 🔥</div>
-        </div>
       </div>
-      <div style="margin-top:12px">
-        <div class="small">XP Progress</div>
-        <div class="progressbar"><span style="width:23%"></span></div>
+      
+      <div class="card reveal-on-scroll" style="margin-top:40px; padding:40px; text-align:left; max-width:900px; margin-left:auto; margin-right:auto;">
+         <div style="border-bottom:1px solid var(--glass-border); padding-bottom:16px; margin-bottom:24px; display:flex; gap:12px;">
+            <div style="width:12px; height:12px; background:#ef4444; border-radius:50%"></div>
+            <div style="width:12px; height:12px; background:#fbbf24; border-radius:50%"></div>
+            <div style="width:12px; height:12px; background:#10b981; border-radius:50%"></div>
+         </div>
+         <div class="grid cols-3">
+            <div style="background:rgba(0,0,0,0.03); border-radius:8px; height:120px;"></div>
+            <div style="background:rgba(0,0,0,0.03); border-radius:8px; height:120px; grid-column: span 2"></div>
+         </div>
       </div>
-      <div class="kpis" style="margin-top:12px">
-        <div class="kpi"><div class="small">Lessons</div><div class="value">3</div></div>
-        <div class="kpi"><div class="small">Projects</div><div class="value">1</div></div>
-        <div class="kpi"><div class="small">Roadmaps</div><div class="value">1</div></div>
-      </div>
-    </article>
-
-    <article class="card">
-      <h2 class="section-title">Learning Roadmaps</h2>
-      <div class="card" style="border-style:dashed">
-        <h3>Unity Game Dev Fundamentals</h3>
-        <div class="chips">
-          <span class="chip">beginner</span><span class="chip">8 weeks</span>
-        </div>
-        <div class="small" style="margin-top:8px">Progress</div>
-        <div class="progressbar"><span style="width:30%"></span></div>
-        <div class="small" style="margin-top:6px">3 / 12 lessons</div>
-      </div>
-      <div class="card" style="margin-top:12px;border-style:dashed">
-        <h3>2D Game Art &amp; Animation</h3>
-        <div class="chips">
-          <span class="chip">beginner</span><span class="chip">6 weeks</span>
-        </div>
-        <div class="small" style="margin-top:8px">Progress</div>
-        <div class="progressbar"><span style="width:8%"></span></div>
-        <div class="small" style="margin-top:6px">0 / 10 lessons</div>
-      </div>
-    </article>
-  </section>
-
-    <div class="footer-note">Prototype for coursework – hybrid architecture: multi-page + on-page tabs via :target.</div>
-    <nav class="bottom-nav" aria-label="Bottom">
-      <a href="index.html">Home</a>
-      <a href="projects.html">Projects</a>
-      <a href="progress.html">Progress</a>
-      <a href="community.html">Community</a>
-      <a href="career.html">Career</a>
-    </nav>
+    </div>
   </div>
 
-<div id="modal" class="modal" aria-hidden="true" role="dialog" aria-modal="true"><div class="modal__dialog" role="document"><button class="modal__close" aria-label="Close">×</button><div id="modal-content"></div></div><div class="modal__backdrop"></div></div>
+  <div class="container reveal-on-scroll">
+    <div class="social-proof">
+      <p class="small" style="text-transform:uppercase; letter-spacing:1px; font-weight:600;">Trusted by partners from</p>
+      <div class="logo-cloud">
+        <div>UNITY</div>
+        <div>EPIC</div>
+        <div>ITCH.IO</div>
+        <div>BRACKEYS</div>
+        <div>GDC</div>
+      </div>
+    </div>
+  </div>
 
+  <div class="container section-block reveal-on-scroll">
+    <div class="grid cols-3">
+      <article class="card feature-card">
+        <h3><span class="icon">🛑</span> Stop Watching</h3>
+        <p class="small muted">Tutorial hell ends here. We don't just show you code; we give you a spec and make you build it.</p>
+      </article>
+      <article class="card feature-card">
+        <h3><span class="icon">💼</span> Portfolio Ready</h3>
+        <p class="small muted">Every assignment is a standalone project. By the end, you'll have 5 playable games on your itch.io page.</p>
+      </article>
+      <article class="card feature-card">
+        <h3><span class="icon">🤝</span> Get Unstuck</h3>
+        <p class="small muted">Stuck on a bug? Our mentors and community are here to unblock you within hours, not days.</p>
+      </article>
+    </div>
+  </div>
+
+  <div id="curriculum" class="container section-block reveal-on-scroll" style="margin-top:80px">
+    <div class="center-text">
+      <h2 class="section-title">8 Weeks to Junior Dev</h2>
+      <p class="section-subtitle">A structured roadmap designed to take you from "Hello World" to your first Steam release.</p>
+    </div>
+    
+    <div class="grid cols-4">
+      <div class="card">
+        <div class="small muted" style="margin-bottom:8px">Week 1-2</div>
+        <h3 style="margin:0 0 8px">Foundations</h3>
+        <p class="small">C# syntax, Unity interface, and Physics 2D basics. Build Pong.</p>
+      </div>
+      <div class="card">
+        <div class="small muted" style="margin-bottom:8px">Week 3-4</div>
+        <h3 style="margin:0 0 8px">Core Systems</h3>
+        <p class="small">Input System, Animation State Machines, and UI. Build a Platformer.</p>
+      </div>
+      <div class="card">
+        <div class="small muted" style="margin-bottom:8px">Week 5-6</div>
+        <h3 style="margin:0 0 8px">Polish & Juice</h3>
+        <p class="small">Particle systems, Screen shake, Audio mixers, and Post-processing.</p>
+      </div>
+      <div class="card">
+        <div class="small muted" style="margin-bottom:8px">Week 7-8</div>
+        <h3 style="margin:0 0 8px">Release</h3>
+        <p class="small">Save systems, Menus, Build settings, and publishing to Itch.io/Steam.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="container section-block reveal-on-scroll" style="margin-top:80px">
+    <h2 class="section-title center-text">Everything you need in one place</h2>
+    <div class="grid cols-2">
+      <a href="projects.html" class="card" style="display:block">
+        <h3>💻 Projects Dashboard</h3>
+        <p class="muted">Access your active assignments, code reviews, and asset libraries.</p>
+        <span class="btn ghost small" style="margin-top:16px">View Projects →</span>
+      </a>
+      <a href="progress.html" class="card" style="display:block">
+        <h3>📈 Progress Tracking</h3>
+        <p class="muted">Visualize your XP, streaks, and skill tree completion rates.</p>
+        <span class="btn ghost small" style="margin-top:16px">Check Stats →</span>
+      </a>
+      <a href="community.html" class="card" style="display:block">
+        <h3>💬 Community Hub</h3>
+        <p class="muted">Join study groups, ask questions, and find teammates.</p>
+        <span class="btn ghost small" style="margin-top:16px">Join Discussion →</span>
+      </a>
+      <a href="career.html" class="card" style="display:block">
+        <h3>🚀 Career Center</h3>
+        <p class="muted">Real job listings, resume reviews, and mock interview prep.</p>
+        <span class="btn ghost small" style="margin-top:16px">Explore Careers →</span>
+      </a>
+    </div>
+  </div>
+
+  <div class="container section-block reveal-on-scroll" style="margin-top:80px">
+    <div class="card" style="background: linear-gradient(135deg, var(--glass-surface), rgba(79, 70, 229, 0.1)); border-color: var(--brand-glow);">
+      <div class="grid cols-2" style="align-items:center;">
+        <div>
+          <h2 class="section-title">Expert Mentorship</h2>
+          <p class="section-subtitle" style="margin-bottom:24px;">Don't struggle alone. Our seniors from EA, Ubisoft, and Indie hits are here to help.</p>
+          <ul style="list-style:none; padding:0; display:grid; gap:12px;">
+            <li style="display:flex; gap:10px;">✅ <span>Weekly code reviews</span></li>
+            <li style="display:flex; gap:10px;">✅ <span>1-on-1 career strategy calls</span></li>
+            <li style="display:flex; gap:10px;">✅ <span>Live debugging sessions</span></li>
+          </ul>
+          <a href="community.html#mentors" class="btn hero-primary" style="margin-top:24px;">Find a Mentor</a>
+        </div>
+        <div style="display:flex; justify-content:center;">
+          <div style="position:relative; width:300px; height:200px;">
+             <div class="card" style="position:absolute; top:0; left:20px; width:240px; transform:rotate(-3deg);">
+                <strong>Dr. Emma</strong><br><small>Senior Dev • 15 years xp</small>
+             </div>
+             <div class="card" style="position:absolute; top:60px; left:40px; width:240px; transform:rotate(3deg); background:#fff;">
+                <strong>Jason Wu</strong><br><small>Tech Artist • Ubisoft</small>
+             </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container section-block reveal-on-scroll" style="margin-top:80px">
+    <div class="center-text">
+      <h2 class="section-title">Simple Plans</h2>
+      <p class="section-subtitle">Invest in your career for less than the cost of a coffee a day.</p>
+    </div>
+    
+    <div class="grid cols-3 pricing-grid" style="margin-top:40px;">
+      <article class="card pricing-card">
+        <h3>Hobbyist</h3>
+        <div class="price">$0<span>/mo</span></div>
+        <p class="small muted">Perfect for testing the waters.</p>
+        <hr style="border:0; border-top:1px solid var(--glass-border); width:100%;">
+        <ul style="list-style:none; padding:0; display:grid; gap:12px; font-size:14px;">
+           <li>✅ Access to 3 starter projects</li>
+           <li>✅ Community forum access</li>
+           <li>❌ No mentor reviews</li>
+        </ul>
+        <a href="#" class="btn ghost" style="width:100%">Sign Up Free</a>
+      </article>
+
+      <article class="card pricing-card featured">
+        <div class="badge-pill">MOST POPULAR</div>
+        <h3>Pro Builder</h3>
+        <div class="price">$29<span>/mo</span></div>
+        <p class="small muted">Serious about getting hired.</p>
+        <hr style="border:0; border-top:1px solid var(--glass-border); width:100%;">
+        <ul style="list-style:none; padding:0; display:grid; gap:12px; font-size:14px;">
+           <li>✅ <strong>All 20+ projects</strong></li>
+           <li>✅ Weekly code reviews</li>
+           <li>✅ Career path access</li>
+           <li>✅ Certificate of completion</li>
+        </ul>
+        <a href="#" class="btn hero-primary" style="width:100%">Get Started</a>
+      </article>
+
+      <article class="card pricing-card">
+        <h3>Lifetime</h3>
+        <div class="price">$299<span>/one-time</span></div>
+        <p class="small muted">Pay once, own it forever.</p>
+        <hr style="border:0; border-top:1px solid var(--glass-border); width:100%;">
+        <ul style="list-style:none; padding:0; display:grid; gap:12px; font-size:14px;">
+           <li>✅ Everything in Pro</li>
+           <li>✅ Lifetime updates</li>
+           <li>✅ Private discord channel</li>
+           <li>✅ Downloadable video assets</li>
+        </ul>
+        <a href="#" class="btn ghost" style="width:100%">Buy Lifetime</a>
+      </article>
+    </div>
+  </div>
+
+  <div class="container section-block reveal-on-scroll" style="margin-top:80px">
+    <h2 class="section-title center-text">Frequently Asked Questions</h2>
+    <div class="faq-list" style="margin-top:32px;">
+      <details>
+        <summary>Do I need prior coding experience?</summary>
+        <p>No! Our "Foundations" track assumes zero prior knowledge. We teach C# from the ground up specifically for game development context.</p>
+      </details>
+      <details>
+        <summary>How much time per week is required?</summary>
+        <p>We recommend dedicating 5-8 hours per week to complete the 8-week curriculum on time. However, all content is self-paced.</p>
+      </details>
+      <details>
+        <summary>Is Unity free to use?</summary>
+        <p>Yes, the Unity Personal Edition is completely free for individuals and small teams making under $100k revenue per year.</p>
+      </details>
+      <details>
+        <summary>Can I get a refund?</summary>
+        <p>Absolutely. We offer a 14-day money-back guarantee if the course style doesn't match your learning preferences.</p>
+      </details>
+      <details>
+        <summary>Are the projects portfolio-ready?</summary>
+        <p>Yes. Unlike "follow-along" tutorials, our assignments require you to customize art, sound, and gameplay tweaks, making them unique to you.</p>
+      </details>
+    </div>
+  </div>
+
+  <div class="container section-block reveal-on-scroll" style="margin:80px auto;">
+    <article class="card final-cta center-text" style="padding:60px;">
+      <h2 class="section-title">Ready to build your dream game?</h2>
+      <p class="page-intro center-text">Join 5,000+ developers shipping games with GameCraft Academy today.</p>
+      <div style="margin-top:32px; display:flex; gap:16px; justify-content:center;">
+        <a href="projects.html" class="btn hero-primary">Jump into Projects</a>
+        <a href="progress.html" class="btn ghost">View Demo Dashboard</a>
+      </div>
+    </article>
+  </div>
+
+  <div class="footer-note">
+    Prototype for coursework – marketing home + product views (Projects, Progress, Community, Career).
+  </div>
+
+  <nav class="bottom-nav" aria-label="Bottom navigation">
+    <a href="index.html" aria-current="page">Home</a>
+    <a href="projects.html">Projects</a>
+    <a href="progress.html">Progress</a>
+    <a href="community.html">Community</a>
+    <a href="career.html">Career</a>
+  </nav>
 </main>
-<script src="script.js"></script>
 </body>
 </html>

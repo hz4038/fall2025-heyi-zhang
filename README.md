@@ -81,3 +81,14 @@
 * Job “save” stars now toggle a `.filled` state as well as the ★/☆ character, so the micro-animation in CSS is actually used when you save or unsave a job.
 * Overall, these changes focus on readability and visual hierarchy rather than new features, keeping the prototype simple but more polished.
 
+## 2025-11-23 – Marketing landing page upgrade
+
+- Replaced the previous dashboard-style `index.html` with a dedicated marketing / value-proposition home page.
+- Added a hero section with clear positioning statement, primary and secondary CTAs.
+- Introduced social proof band with example partner logos and testimonial cards.
+- Expanded curriculum overview with an 8-week spine and a mapping to product surfaces (Projects, Progress, Community).
+- Added dedicated sections for Mentorship & Community and Career Outcomes.
+- Designed a conceptual Pricing & Plans section and an FAQ block.
+- Applied a more polished commercial visual style: gradient background orbs, glassmorphism hero shell, testimonial and pricing cards.
+
+The product views for learners (Projects, Progress, Community, Career) remain as separate pages and are now linked from the new landing page.

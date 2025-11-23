@@ -13,7 +13,7 @@
       <span class="logo" aria-hidden="true"></span>
       <h1>GameCraft Academy</h1>
     </div>
-    <button id="theme-toggle" class="btn ghost" aria-pressed="false" aria-label="Toggle dark mode">🌓</button>
+    <div style="flex:1"></div>
     <nav class="primary" aria-label="Primary">
       <a href="index.html">Home</a>
       <a href="projects.html">Projects</a>
@@ -21,35 +21,37 @@
       <a href="community.html">Community</a>
       <a href="career.html" aria-current="page">Career</a>
     </nav>
+    <button id="theme-toggle" class="btn ghost" style="margin-left:12px">🌓</button>
   </div>
 </header>
 <main>
-  <div class="container">
+  <div class="container reveal-on-scroll">
 
   <h2 class="section-title">Career Guidance</h2>
   <p class="page-intro">Explore possible roles, reflect on your skills, and keep an eye on the current job market.</p>
+  
   <nav class="tabs" aria-label="Career tabs">
-    <a href="#paths">Career Paths</a>
+    <a href="#paths" class="active">Career Paths</a>
     <a href="#skills">Skill Assessment</a>
     <a href="#jobs">Job Market</a>
   </nav>
 
-  <section id="paths" class="tab-panel default">
-    <div id="paths-list"></div>
+  <section id="paths" class="tab-panel default active">
+    <div id="paths-list" class="grid cols-3"></div>
   </section>
 
   <section id="skills" class="tab-panel">
     <article class="card">
-      <h3>Overall Readiness</h3>
-      <p class="small">Ready for entry-level positions: 47%</p>
+      <h3 style="margin-top:0">Overall Readiness</h3>
+      <p class="small muted">Ready for entry-level positions: 47%</p>
       <div class="progressbar"><span id="readiness-bar"></span></div>
-      <p class="small" style="margin-top:8px">Focus on C# programming and Unity to reach 70%.</p>
+      <p class="small muted" style="margin-top:12px">Focus on C# programming and Unity to reach 70%.</p>
     </article>
   </section>
 
   <section id="jobs" class="tab-panel">
-    <p class="legend small">Tip: Click the ☆ on a job to save it.</p>
-    <div id="jobs-list"></div>
+    <p class="legend small muted" style="margin-bottom:12px">Tip: Click the ☆ on a job to save it.</p>
+    <div id="jobs-list" class="grid cols-2"></div>
   </section>
 
   <script>
@@ -59,8 +61,16 @@
         document.querySelectorAll(".tabs a").forEach(function(a){
           a.classList.toggle("active", a.getAttribute("href")===hash);
         });
+        document.querySelectorAll(".tab-panel").forEach(function(p){
+          if(p.id === hash.replace('#','')) {
+              p.style.display = 'block';
+          } else {
+              p.style.display = 'none';
+          }
+        });
       }
-      window.addEventListener("hashchange", sync); sync();
+      window.addEventListener("hashchange", sync); 
+      window.addEventListener("DOMContentLoaded", sync);
     })();
   </script>
 

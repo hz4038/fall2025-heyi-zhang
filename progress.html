@@ -13,7 +13,7 @@
       <span class="logo" aria-hidden="true"></span>
       <h1>GameCraft Academy</h1>
     </div>
-    <button id="theme-toggle" class="btn ghost" aria-pressed="false" aria-label="Toggle dark mode">🌓</button>
+    <div style="flex:1"></div>
     <nav class="primary" aria-label="Primary">
       <a href="index.html">Home</a>
       <a href="projects.html">Projects</a>
@@ -21,31 +21,33 @@
       <a href="community.html">Community</a>
       <a href="career.html">Career</a>
     </nav>
+    <button id="theme-toggle" class="btn ghost" style="margin-left:12px">🌓</button>
   </div>
 </header>
 <main>
-  <div class="container">
+  <div class="container reveal-on-scroll">
 
   <h2 class="section-title">Your Progress</h2>
   <p class="page-intro">Zoom in on completed lessons, recent achievements, and badges from your Unity learning path.</p>
+  
   <section class="card">
     <div class="grid cols-3">
-      <div class="kpi"><div class="small">Level</div><div class="value">2</div><div class="small">350 / 1500 XP</div></div>
-      <div class="kpi"><div class="small">Day Streak</div><div class="value">5</div><div class="small">🔥 Keep it up!</div></div>
-      <div class="kpi"><div class="small">Completed</div><div class="value">3</div><div class="small">Lessons</div></div>
+      <div class="kpi"><div class="small muted">Level</div><div class="value">2</div><div class="small">350 / 1500 XP</div></div>
+      <div class="kpi"><div class="small muted">Day Streak</div><div class="value">5</div><div class="small">🔥 Keep it up!</div></div>
+      <div class="kpi"><div class="small muted">Completed</div><div class="value">3</div><div class="small">Lessons</div></div>
     </div>
-    <div style="margin-top:16px">
+    <div style="margin-top:24px">
       <h3>Overall Progress</h3>
-      <div class="small">Total Lessons Completed — 3 / 38</div>
+      <div class="small muted" style="margin-bottom:8px">Total Lessons Completed — 3 / 38</div>
       <div class="progressbar"><span style="width:8%"></span></div>
     </div>
   </section>
 
-  <section class="card" style="margin-top:16px">
+  <section class="card">
     <h3>Recent Achievements</h3>
-    <ul>
-      <li class="small">First Project Completed – Pong (+100 XP)</li>
-      <li class="small">5‑Day Streak (+50 XP)</li>
+    <ul style="padding-left:20px; color:var(--ink-secondary)">
+      <li style="margin-bottom:8px">First Project Completed – Pong (+100 XP)</li>
+      <li>5‑Day Streak (+50 XP)</li>
     </ul>
   </section>
 

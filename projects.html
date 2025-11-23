@@ -13,21 +13,22 @@
       <span class="logo" aria-hidden="true"></span>
       <h1>GameCraft Academy</h1>
     </div>
-    <button id="theme-toggle" class="btn ghost" aria-pressed="false" aria-label="Toggle dark mode">🌓</button>
-    <nav class="primary" aria-label="Primary">
+    <div style="flex:1"></div> <nav class="primary" aria-label="Primary">
       <a href="index.html">Home</a>
       <a href="projects.html" aria-current="page">Projects</a>
       <a href="progress.html">Progress</a>
       <a href="community.html">Community</a>
       <a href="career.html">Career</a>
     </nav>
+    <button id="theme-toggle" class="btn ghost" style="margin-left:12px" aria-label="Toggle dark mode">🌓</button>
   </div>
 </header>
 <main>
-  <div class="container">
+  <div class="container reveal-on-scroll">
 
   <h2 class="section-title">Projects &amp; Challenges</h2>
   <p class="page-intro">Browse practice tasks, showcase pieces, and challenges to decide what to build next.</p>
+  
   <div id="project-controls" class="toolbar">
     <input id="project-search" type="search" placeholder="Search projects (title, tags)..." aria-label="Search projects"/>
     <select id="project-sort" aria-label="Sort projects">
@@ -45,13 +46,14 @@
       <button id="clear-filters" class="btn ghost small">Clear</button>
     </div>
   </div>
+
   <nav class="tabs" aria-label="Project tabs">
-    <a href="#practice" id="tab-practice">Practice</a>
+    <a href="#practice" id="tab-practice" class="active">Practice</a>
     <a href="#showcase" id="tab-showcase">Showcase</a>
     <a href="#challenges" id="tab-challenges">Challenges</a>
   </nav>
 
-  <section id="practice" class="tab-panel default">
+  <section id="practice" class="tab-panel default active">
     <div id="practice-list" class="grid cols-2"></div>
   </section>
 
@@ -68,11 +70,23 @@
       function sync(){
         var hash = window.location.hash || "#practice";
         document.querySelectorAll(".tabs a").forEach(function(a){
+          // 简单的选中状态切换
           a.classList.toggle("active", a.getAttribute("href")===hash);
+        });
+        document.querySelectorAll(".tab-panel").forEach(function(p){
+          // 配合CSS display:none/block
+          if(p.id === hash.replace('#','')) {
+              p.style.display = 'block';
+              p.classList.add('active');
+          } else {
+              p.style.display = 'none';
+              p.classList.remove('active');
+          }
         });
       }
       window.addEventListener("hashchange", sync);
-      sync();
+      // 页面加载稍微延迟执行以等待DOM
+      window.addEventListener("DOMContentLoaded", sync);
     })();
   </script>
 
