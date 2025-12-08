@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", () => {
 
-    // --- 1. 原有数据与逻辑保持不变 ---
+    // Data models
   
     const practiceItems = [
       { title: "Pong Classic", chips: ["Beginner","Unity","C#"], desc: "Finish a complete game using Unity physics & basic scripting (2–3 hours).", progress: 100 },
@@ -64,7 +64,7 @@ document.addEventListener("DOMContentLoaded", () => {
         { title: "QA Engineer (Automation)", meta: "Montreal, QC • $55k–$75k • Required: Python/C#, CI" }
     ];
   
-    // --- 辅助函数 ---
+    // Helper utilities
     const $ = (s, p=document) => p.querySelector(s);
     const $$ = (s, p=document) => p.querySelectorAll(s);
   
@@ -90,7 +90,7 @@ document.addEventListener("DOMContentLoaded", () => {
       container.appendChild(bar);
     }
   
-    // --- 核心渲染逻辑 ---
+    // Render cards and lists
     function renderCard(item, type){
       const card = el("article", "card reveal-on-scroll"); // 添加 reveal-on-scroll 类
       const h3 = el("h3", "", item.title);
@@ -117,7 +117,7 @@ document.addEventListener("DOMContentLoaded", () => {
       items.forEach(item => container.appendChild(renderCard(item, type)));
     }
   
-    // 渲染各个部分的列表
+    // Render each section list
     renderList("#practice-list", practiceItems);
     renderList("#showcase-list", showcaseItems);
     renderList("#challenges-list", challengeItems);
@@ -127,9 +127,9 @@ document.addEventListener("DOMContentLoaded", () => {
     renderList("#paths-list", paths);
     renderList("#jobs-list", jobs);
   
-    // --- 2. 交互与功能增强 ---
+    // UI interactions
   
-    // 模态框逻辑
+    // Modal logic
     const modal = $("#modal");
     const modalContent = $("#modal-content");
     
@@ -157,20 +157,20 @@ document.addEventListener("DOMContentLoaded", () => {
       window.addEventListener("keydown", (e)=>{ if(e.key==="Escape") closeModal(); });
     }
   
-    // 简单的 Toast 通知
+    // Simple toast helper
     window.toast = function(msg){
       const t = el("div", "toast", msg);
       document.body.appendChild(t);
       setTimeout(()=> t.remove(), 3000);
     };
   
-    // 导师预约增强逻辑
+    // Mentor booking demo
     function enhanceMentors(){
       $$("#mentors-list .card").forEach(card=>{
         if(card.dataset.booking) return;
         card.dataset.booking = "1";
         const btn = document.createElement("button");
-        btn.className = "btn small hero-primary"; // 样式升级
+        btn.className = "btn small hero-primary"; // primary-style button
         btn.style.marginTop = "12px";
         btn.style.width = "100%";
         btn.textContent = "Book Session";
@@ -198,7 +198,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
     if($("#mentors-list")) setTimeout(enhanceMentors, 0);
   
-    // 主题切换逻辑
+    // Theme toggle
     const themeBtn = $("#theme-toggle");
     const html = document.documentElement;
     if(themeBtn){
@@ -215,8 +215,8 @@ document.addEventListener("DOMContentLoaded", () => {
       });
     }
     
-    // --- 3. 新增：滚动动画观察者 (Scroll Reveal) ---
-    // 即使内容是动态生成的，这个观察者也会捕捉到带有 .reveal-on-scroll 的元素
+    // Scroll reveal observer
+    // Works for static and dynamic .reveal-on-scroll elements
     const observerOptions = {
       root: null,
       rootMargin: '0px',
@@ -227,12 +227,12 @@ document.addEventListener("DOMContentLoaded", () => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
           entry.target.classList.add('is-visible');
-          observer.unobserve(entry.target); // 只动画一次
+          observer.unobserve(entry.target); // animate once
         }
       });
     }, observerOptions);
   
-    // 监听静态和动态添加的元素
+    // Observe new elements
     function observeElements() {
       const elements = document.querySelectorAll('.card, .hero-title, .hero-subtitle, .reveal-on-scroll');
       elements.forEach(el => {
@@ -241,9 +241,9 @@ document.addEventListener("DOMContentLoaded", () => {
       });
     }
     
-    // 初始化并设置一个小的延时以确保DOM渲染完成
+    // Small delay to ensure DOM is ready
     setTimeout(observeElements, 100);
-    // 每次点击Tab可能导致内容变化，重新绑定动画
+    // Re-run after tab hash changes
     window.addEventListener('hashchange', () => setTimeout(observeElements, 100));
   
   });

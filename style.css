@@ -1,5 +1,5 @@
 :root {
-  /* --- 核心视觉：深邃极光色系 --- */
+  /* Theme tokens */
   --bg-base: #f8fafc;
   --bg-gradient: radial-gradient(circle at 15% 50%, rgba(99, 102, 241, 0.08), transparent 25%), 
                  radial-gradient(circle at 85% 30%, rgba(16, 185, 129, 0.08), transparent 25%);
@@ -29,7 +29,7 @@
   --brand-primary: #818cf8;
 }
 
-/* --- 全局重置 --- */
+/* Global reset */
 * { box-sizing: border-box; outline: none; }
 html, body {
   margin: 0; padding: 0;
@@ -48,7 +48,7 @@ a:hover { color: var(--accent-success); }
 .container { max-width: 1100px; margin: 0 auto; padding: 0 24px; }
 .hidden { display: none !important; }
 
-/* --- 导航栏 (Header) --- */
+/* Header */
 header.site {
   position: sticky; top: 0; z-index: 100;
   background: rgba(255, 255, 255, 0.85);
@@ -62,12 +62,17 @@ header.site {
 .site .container, .nav-shell { display: flex; align-items: center; justify-content: space-between; }
 .brand { display: flex; align-items: center; gap: 12px; }
 .brand h1 { font-size: 18px; margin: 0; font-weight: 700; letter-spacing: -0.02em; }
+
 .brand .logo {
-  width: 32px; height: 32px; border-radius: 8px;
-  background: linear-gradient(135deg, var(--brand-primary), #a855f7);
-  display: flex; align-items: center; justify-content: center;
-  color: #fff; font-size: 14px; font-weight: bold;
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  background: url('unity_icon_136074.png') center/cover no-repeat;
+  display: inline-block;
+  text-indent: -9999px; /* hide GA text if present */
+  overflow: hidden;
 }
+
 
 nav.primary { display: flex; gap: 4px; background: rgba(0,0,0,0.04); padding: 4px; border-radius: 12px; }
 :root[data-theme="dark"] nav.primary { background: rgba(255,255,255,0.05); }
@@ -80,7 +85,7 @@ nav.primary a[aria-current="page"] { background: var(--bg-base); color: var(--br
 
 .nav-actions { display: flex; gap: 12px; align-items: center; }
 
-/* --- 通用组件 --- */
+/* Common UI components */
 .btn {
   display: inline-flex; align-items: center; justify-content: center; gap: 8px;
   padding: 10px 20px; border-radius: 10px; font-weight: 600; cursor: pointer; border: none; font-size: 14px;
@@ -110,39 +115,39 @@ nav.primary a[aria-current="page"] { background: var(--bg-base); color: var(--br
 .grid.cols-4 { grid-template-columns: repeat(4, 1fr); }
 @media (max-width: 768px) { .grid.cols-2, .grid.cols-3, .grid.cols-4 { grid-template-columns: 1fr; } }
 
-/* --- 首页特定样式 & Logo墙修复 --- */
+/* Landing page hero */
 .landing-hero { padding: 80px 0 60px; text-align: center; }
 .hero-title { font-size: 56px; line-height: 1.1; margin-bottom: 24px; background: linear-gradient(135deg, var(--ink-primary), var(--ink-muted)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
 .hero-subtitle { font-size: 20px; color: var(--ink-secondary); max-width: 680px; margin: 0 auto 32px; }
 .hero-ctas { display: flex; gap: 16px; justify-content: center; margin-bottom: 60px; }
 
-/* --- 修复部分：Trusted by partners 样式 --- */
+/* Logo cloud */
 .social-proof { margin-bottom: 80px; text-align: center; }
 .social-proof p { color: var(--ink-secondary); margin-bottom: 24px; font-weight: 600; opacity: 0.8; }
 
 .logo-cloud { 
   display: flex; justify-content: center; gap: 40px; flex-wrap: wrap; 
   align-items: center;
-  opacity: 0.6; /* 整体轻微半透明，不叠加滤镜 */
+  opacity: 0.6;
 }
 
 .logo-cloud div { 
-  font-weight: 900;           /* 极粗字体，像LOGO */
-  font-size: 24px;            /* 字号加大 */
-  color: var(--ink-muted);    /* 使用哑光色 */
-  text-transform: uppercase;  /* 强制大写 */
-  letter-spacing: 0.05em;     /* 增加字间距 */
-  font-family: system-ui, -apple-system, sans-serif; /* 确保使用无衬线字体 */
+  font-weight: 900;
+  font-size: 24px;
+  color: var(--ink-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-family: system-ui, -apple-system, sans-serif;
 }
 
-/* --- 文字排版与通用 --- */
+/* Typography */
 .section-title { font-size: 32px; font-weight: 800; margin: 32px 0 16px; letter-spacing: -0.03em; }
 .section-subtitle, .page-intro { font-size: 18px; color: var(--ink-secondary); max-width: 700px; margin-bottom: 32px; line-height: 1.6; }
 .center-text { text-align: center; margin-left: auto; margin-right: auto; }
 .small { font-size: 13px; }
 .muted { color: var(--ink-muted); }
 
-/* --- Projects 页面 Toolbar --- */
+/* Projects toolbar */
 .toolbar {
   background: var(--glass-surface); border: 1px solid var(--glass-border);
   padding: 16px; border-radius: 16px; margin-bottom: 24px;
@@ -162,7 +167,7 @@ nav.primary a[aria-current="page"] { background: var(--bg-base); color: var(--br
 }
 .chip:hover, .chip.active { background: rgba(79, 70, 229, 0.1); color: var(--brand-primary); border-color: rgba(79, 70, 229, 0.2); }
 
-/* --- Tabs --- */
+/* Tabs */
 .tabs { display: flex; gap: 24px; border-bottom: 1px solid var(--glass-border); margin-bottom: 24px; }
 .tabs a { padding: 12px 4px; font-weight: 600; color: var(--ink-muted); position: relative; }
 .tabs a.active { color: var(--brand-primary); }
@@ -171,13 +176,13 @@ nav.primary a[aria-current="page"] { background: var(--bg-base); color: var(--br
 .tab-panel.active, .tab-panel.default:target { display: block; } 
 @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
 
-/* --- KPI & Progress --- */
+/* KPIs & progress */
 .kpi { text-align: center; padding: 16px; background: rgba(255,255,255,0.4); border-radius: 12px; }
 .kpi .value { font-size: 28px; font-weight: 800; color: var(--brand-primary); margin: 4px 0; }
 .progressbar { height: 8px; background: rgba(0,0,0,0.05); border-radius: 4px; overflow: hidden; margin-top: 8px; }
 .progressbar > span { display: block; height: 100%; background: var(--brand-primary); border-radius: 4px; }
 
-/* --- Feature Card & Pricing (首页) --- */
+/* Feature & pricing cards */
 .feature-card h3 { margin-top: 0; display: flex; align-items: center; gap: 8px; }
 .feature-card .icon { font-size: 24px; background: rgba(0,0,0,0.03); width: 40px; height: 40px; display: flex; align-items: center; justify-content: center; border-radius: 10px; }
 .pricing-grid { align-items: start; }
@@ -185,7 +190,7 @@ nav.primary a[aria-current="page"] { background: var(--bg-base); color: var(--br
 .price { font-size: 36px; font-weight: 800; color: var(--ink-primary); }
 .badge-pill { background: var(--brand-primary); color: #fff; padding: 4px 12px; border-radius: 20px; font-size: 12px; position: absolute; top: -12px; left: 50%; transform: translateX(-50%); }
 
-/* --- FAQ Details --- */
+/* FAQ */
 details { background: var(--glass-surface); border: 1px solid var(--glass-border); border-radius: 16px; overflow: hidden; margin-bottom: 12px; transition: all 0.3s; }
 details[open] { background: #fff; box-shadow: var(--glass-shadow); }
 summary { padding: 20px; font-weight: 600; cursor: pointer; display: flex; justify-content: space-between; align-items: center; list-style: none; }
@@ -194,13 +199,13 @@ summary::after { content: "+"; font-size: 20px; color: var(--ink-muted); }
 details[open] summary::after { content: "-"; color: var(--brand-primary); }
 details p { padding: 0 20px 20px; margin: 0; color: var(--ink-secondary); }
 
-/* --- Footer --- */
+/* Footer */
 .footer-note { margin-top: 40px; padding-top: 20px; border-top: 1px solid var(--glass-border); text-align: center; font-size: 12px; color: var(--ink-muted); }
 .bottom-nav { display: none; }
 @media (max-width: 768px) {
   .bottom-nav { display: flex; position: fixed; bottom: 0; inset-x: 0; background: rgba(255,255,255,0.9); justify-content: space-around; padding: 12px; border-top: 1px solid var(--glass-border); z-index: 999; }
 }
 
-/* --- Animation --- */
+/* Scroll animation */
 .reveal-on-scroll { opacity: 0; transform: translateY(20px); transition: opacity 0.6s, transform 0.6s; }
 .reveal-on-scroll.is-visible { opacity: 1; transform: translateY(0); }

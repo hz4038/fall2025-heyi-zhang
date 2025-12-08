@@ -1,3 +1,11 @@
+
+# GameCraft Academy – Front-End Prototype
+
+A small multi-page marketing and learner dashboard prototype for a Unity game development course.  
+The notes below document the architecture choice, pages, features, animations, and later landing page upgrade.
+
+---
+
 **Chosen Option: Option C**
 
 ## Why this choice?
